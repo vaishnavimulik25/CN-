@@ -19,7 +19,6 @@ char FindClass(char Ip[]){
     for(int i = 0; i< 3;i++){
         octet = octet*10 + Ip[i] - '0';
     }
-//    printf("%d",octet);    
     if(octet > 0 && octet < 127)
         return 'A';
     if(octet >= 128 && octet <= 191)
@@ -48,12 +47,10 @@ int FindSubnetFromClass(char class){
         return 24;
 }
 
-//find subnets from above fxn
 int FindSubnets(int mask, int subnets){
     return pow(2,mask - subnets);
 }
 
-//totalsubnets from above fxn and totalhosts from above var fxn
 int FindHostperSubnet(int totalhosts, int totalsubnets){
     return totalhosts/totalsubnets;
 }
@@ -180,14 +177,3 @@ void calculateAndPrintSubnetRanges(const char *ipString, int subnetMaskLength, i
     }
 }
 
-//int main() {
-//    // Input values (example values)
-//    const char *ipString = "192.168.1.0"; // Input IP address in string format
-//    int subnetMaskLength = 25;            // Subnet mask length (e.g., /25)
-//    int numSubnets = pow(2, 32 - subnetMaskLength); // Calculate the number of subnets
-//
-//    // Calculate and print the subnet ranges
-//    calculateAndPrintSubnetRanges(ipString, subnetMaskLength, numSubnets);
-//
-//    return 0;
-//}
